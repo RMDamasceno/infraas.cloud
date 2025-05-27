@@ -16,6 +16,7 @@
       --text: #212121;
       --light: #ffffff;
       --dark: #0d47a1;
+      --highlight: #e3f2fd;
     }
 
     * {
@@ -32,26 +33,39 @@
     }
 
     header {
-      background: var(--primary);
+      background: linear-gradient(to right, var(--primary), var(--secondary));
       color: var(--light);
-      padding: 1rem 2rem;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     header h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 800;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      gap: 1.2rem;
     }
 
     nav a {
       color: var(--light);
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--highlight);
     }
 
     .hero {
@@ -62,12 +76,12 @@
     }
 
     .hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
     }
@@ -80,14 +94,31 @@
 
     .card {
       background: var(--light);
-      border-radius: 8px;
+      border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      margin-bottom: 1rem;
     }
 
     .card h3 {
       color: var(--primary);
       margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
     }
 
     footer {
@@ -96,6 +127,35 @@
       text-align: center;
       padding: 2rem 1rem;
       margin-top: 3rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.75rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary);
     }
   </style>
 </head>
@@ -114,40 +174,77 @@
   </header>
 
   <section class="hero">
-    <h2>Especialistas em Cloud e Infraestrutura</h2>
-    <p>Transformamos sua operação com tecnologia em nuvem, automação e segurança.</p>
+    <h2>Especialistas em Cloud, Infraestrutura e Automação</h2>
+    <p>Oferecemos soluções completas para ambientes híbridos, públicos e privados com excelência técnica.</p>
   </section>
 
   <section class="container" id="servicos">
     <h2>Serviços</h2>
     <div class="services">
       <div class="card">
+        <img src="arquitetura-em-nuvem.png" alt="Arquitetura em Nuvem">
         <h3>Arquitetura em Nuvem</h3>
-        <p>Projetamos ambientes escaláveis e seguros nas principais nuvens públicas.</p>
+        <p>Ambientes escaláveis e seguros em AWS, Azure, Oracle Cloud e outras plataformas.</p>
       </div>
       <div class="card">
+        <img src="devops-automacao.png" alt="DevOps & Automação">
         <h3>DevOps & Automação</h3>
-        <p>Implementamos pipelines de CI/CD, infraestrutura como código e automação de processos.</p>
+        <p>CI/CD, IaC, pipelines automatizados e entrega contínua de valor.</p>
       </div>
       <div class="card">
+        <img src="governanca-seguranca.png" alt="Governança e Segurança">
         <h3>Governança e Segurança</h3>
-        <p>Garantimos conformidade, controle de custos e segurança da informação em ambientes de nuvem.</p>
+        <p>Gestão de conformidade, proteção de dados e políticas de acesso seguras.</p>
       </div>
       <div class="card">
+        <img src="suporte-monitoramento.png" alt="Suporte e Monitoramento">
         <h3>Suporte e Monitoramento</h3>
-        <p>Monitoramento proativo e suporte técnico especializado 24/7.</p>
+        <p>Monitoramento proativo, incidentes e resposta ágil com SLA definido.</p>
+      </div>
+      <div class="card">
+        <img src="migracao-nuvem.png" alt="Migração para Nuvem">
+        <h3>Migração para Nuvem</h3>
+        <p>Planejamento e execução de migração de ambientes on-premises para cloud pública ou híbrida.</p>
+      </div>
+      <div class="card">
+        <img src="otimizacao-custos.png" alt="Cloud Cost Optimization">
+        <h3>Cloud Cost Optimization</h3>
+        <p>Identificação de desperdícios e aplicação de boas práticas de redução de custos em nuvem.</p>
+      </div>
+      <div class="card">
+        <img src="microsoft.png" alt="Serviços Microsoft">
+        <h3>Serviços Microsoft</h3>
+        <p>Active Directory, Exchange, Office 365, integração com Azure e ambientes híbridos.</p>
+      </div>
+      <div class="card">
+        <img src="redes.png" alt="Redes e Infraestrutura">
+        <h3>Redes e Infraestrutura</h3>
+        <p>Projetos de redes locais e distribuídas, VPN, firewalls, baremetal e virtualização.</p>
+      </div>
+      <div class="card">
+        <img src="banco-dados.png" alt="Bancos de Dados">
+        <h3>Bancos de Dados</h3>
+        <p>Implantação e gestão de bancos SQL (PostgreSQL, SQL Server) e NoSQL (MongoDB, Redis).</p>
       </div>
     </div>
   </section>
 
   <section class="container" id="sobre">
     <h2>Sobre Nós</h2>
-    <p>A Infra as Cloud é uma consultoria de tecnologia com foco em soluções modernas de infraestrutura, cloud computing e serviços associados. Atuamos com uma abordagem prática, próxima do cliente e com alto nível técnico, visando resultados reais e sustentáveis.</p>
+    <p>Somos uma equipe multidisciplinar com ampla experiência em projetos de nuvem pública, privada e híbrida. Atendemos desde ambientes baremetal até soluções altamente escaláveis em provedores como AWS, Azure e Oracle Cloud.</p>
+    <p>Nosso diferencial é o conhecimento generalista com profundidade técnica: atuamos com infraestrutura tradicional, redes, virtualização, bancos de dados SQL/NoSQL, serviços Microsoft (Active Directory, Exchange, Office 365), além de DevOps, segurança e automação de ponta a ponta.</p>
+    <p>Seja qual for seu desafio em tecnologia, estamos prontos para entregar soluções personalizadas, sustentáveis e seguras.</p>
   </section>
 
   <section class="container" id="contato">
     <h2>Contato</h2>
-    <p>Quer conversar com a gente? Envie um e-mail para <strong>contato@infraascloud.com</strong> ou fale conosco nas redes sociais.</p>
+    <p>Quer conversar com a gente? Preencha o formulário abaixo:</p>
+    <form action="https://formspree.io/f/mzblynwj" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </section>
 
   <footer>
